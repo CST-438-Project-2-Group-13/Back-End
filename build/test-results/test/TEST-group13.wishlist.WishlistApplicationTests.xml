@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="group13.wishlist.WishlistApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-09-29T01:41:15" hostname="Ashleys-Air.attlocal.net" time="0.465">
+<testsuite name="group13.wishlist.WishlistApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-09-29T16:23:35" hostname="Ashleys-Air.attlocal.net" time="0.595">
   <properties/>
-  <testcase name="contextLoads()" classname="group13.wishlist.WishlistApplicationTests" time="0.465"/>
-  <system-out><![CDATA[18:41:14.579 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [group13.wishlist.WishlistApplicationTests]: WishlistApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-18:41:14.638 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration group13.wishlist.WishlistApplication for test class group13.wishlist.WishlistApplicationTests
+  <testcase name="contextLoads()" classname="group13.wishlist.WishlistApplicationTests" time="0.595"/>
+  <system-out><![CDATA[09:23:34.531 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [group13.wishlist.WishlistApplicationTests]: WishlistApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+09:23:34.612 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration group13.wishlist.WishlistApplication for test class group13.wishlist.WishlistApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,9 +14,9 @@
 
  :: Spring Boot ::                (v3.3.4)
 
-2024-09-28T18:41:14.810-07:00  INFO 82159 --- [Wishlist] [    Test worker] g.wishlist.WishlistApplicationTests      : Starting WishlistApplicationTests using Java 23 with PID 82159 (started by ashley in /Users/ashley/Documents/Fall 2024/CST 438/Back-End)
-2024-09-28T18:41:14.811-07:00  INFO 82159 --- [Wishlist] [    Test worker] g.wishlist.WishlistApplicationTests      : No active profile set, falling back to 1 default profile: "default"
-2024-09-28T18:41:15.293-07:00  INFO 82159 --- [Wishlist] [    Test worker] g.wishlist.WishlistApplicationTests      : Started WishlistApplicationTests in 0.593 seconds (process running for 1.161)
+2024-09-29T09:23:34.824-07:00  INFO 84668 --- [Wishlist] [    Test worker] g.wishlist.WishlistApplicationTests      : Starting WishlistApplicationTests using Java 23 with PID 84668 (started by ashley in /Users/ashley/Documents/Fall 2024/CST 438/Back-End)
+2024-09-29T09:23:34.825-07:00  INFO 84668 --- [Wishlist] [    Test worker] g.wishlist.WishlistApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2024-09-29T09:23:35.473-07:00  INFO 84668 --- [Wishlist] [    Test worker] g.wishlist.WishlistApplicationTests      : Started WishlistApplicationTests in 0.778 seconds (process running for 1.536)
 ]]></system-out>
   <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (/Users/ashley/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.14.19/154da3a65b4f4a909d3e5bdec55d1b2b4cbb6ce1/byte-buddy-agent-1.14.19.jar)
 WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
