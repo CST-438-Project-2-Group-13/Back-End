@@ -8,7 +8,8 @@ import java.util.Map;
 @Service
 public class UserService {
 
-    // Simulate a user repository (use a real database in production)
+    // TODO: use a real database
+    // currently simulating a user repository using a hashmap
     final private Map<String, String> userStore = new HashMap<>();
 
     public boolean createUser(String username, String password) {
@@ -19,8 +20,17 @@ public class UserService {
         return true;
     }
 
+
     public boolean validateUser(String username, String password) {
         return userStore.containsKey(username) && userStore.get(username).equals(password);
+    }
+
+    public boolean deleteUser(String username ,String password) {
+        if (validateUser(username,password)) {
+            userStore.remove(username);
+            return true; // user deleted
+        }
+        return false;
     }
 
 }

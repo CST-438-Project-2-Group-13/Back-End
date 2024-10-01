@@ -3,13 +3,9 @@ package group13.wishlist;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api")
 public class UserController {
 
     private final UserService userService;
@@ -42,6 +38,16 @@ public class UserController {
     public ResponseEntity<String> logout(HttpSession session) {
         session.invalidate(); // Invalidate the session to log the user out
         return new ResponseEntity<>("Logout successful", HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<String> deleteUser(@RequestParam String username, @RequestParam String password, HttpSession session) {
+        if (userService.deleteUser(username,password)) {
+            session.invalidate();
+            return new ResponseEntity<>("Account deleted", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Invalid credentials", HttpStatus.UNAUTHORIZED);
+        }
     }
 }
 
