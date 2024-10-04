@@ -1,11 +1,11 @@
 package group13.wishlist;
 
-import jakarta.servlet.http.HttpSession;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
+@RequestMapping("/api/users")
 public class UserController {
 
     private final UserService userService;
@@ -14,40 +14,23 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/new-user")
-    public ResponseEntity<String> createUser(@RequestParam String username, @RequestParam String password) {
-        boolean isCreated = userService.createUser(username, password);
-        if (isCreated) {
-            return new ResponseEntity<>("User created successfully", HttpStatus.CREATED);
-        } else {
-            return new ResponseEntity<>("Username already exists", HttpStatus.CONFLICT);
-        }
+    @GetMapping
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestParam String username, @RequestParam String password, HttpSession session) {
-        if (userService.validateUser(username, password)) {
-            session.setAttribute("username", username); // Store user in session
-            return new ResponseEntity<>("Login successful", HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>("Invalid credentials", HttpStatus.UNAUTHORIZED);
-        }
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable Long id) {
+        return userService.getUserById(id);
     }
 
-    @PostMapping("/logout")
-    public ResponseEntity<String> logout(HttpSession session) {
-        session.invalidate(); // Invalidate the session to log the user out
-        return new ResponseEntity<>("Logout successful", HttpStatus.OK);
+    @PostMapping
+    public User createUser(@RequestBody User user) {
+        return userService.createUser(user);
     }
 
-    @DeleteMapping("/delete")
-    public ResponseEntity<String> deleteUser(@RequestParam String username, @RequestParam String password, HttpSession session) {
-        if (userService.deleteUser(username,password)) {
-            session.invalidate();
-            return new ResponseEntity<>("Account deleted", HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>("Invalid credentials", HttpStatus.UNAUTHORIZED);
-        }
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
     }
 }
-

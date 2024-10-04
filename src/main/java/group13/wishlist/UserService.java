@@ -2,35 +2,30 @@ package group13.wishlist;
 
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 @Service
 public class UserService {
 
-    // TODO: use a real database
-    // currently simulating a user repository using a hashmap
-    final private Map<String, String> userStore = new HashMap<>();
+    private final UserRepository userRepository;
 
-    public boolean createUser(String username, String password) {
-        if (userStore.containsKey(username)) {
-            return false; // Username already exists
-        }
-        userStore.put(username, password); // TODO: change to store a hashed password
-        return true;
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
-
-    public boolean validateUser(String username, String password) {
-        return userStore.containsKey(username) && userStore.get(username).equals(password);
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 
-    public boolean deleteUser(String username ,String password) {
-        if (validateUser(username,password)) {
-            userStore.remove(username);
-            return true; // user deleted
-        }
-        return false;
+    public User getUserById(Long id) {
+        return userRepository.findById(id).orElse(null);
     }
 
+    public User createUser(User user) {
+        return userRepository.save(user);
+    }
+
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
 }
