@@ -1,5 +1,6 @@
 package group13.wishlist;
 
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,5 +10,11 @@ public interface BookRepository extends JpaRepository<Book, Long> {
   Book findByTitle(String title);
 
   Book findByAuthors(String authors);
+
+  List<Book> findByTitleContaining(String title);
+
+  List<Book> findByAuthorsContaining(String author);
+
+  List<Book> findByCategoriesContaining(String category);
 }
 
