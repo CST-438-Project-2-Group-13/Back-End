@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.588s</div>
+<div class="counter">0.783s</div>
 <p>duration</p>
 </div>
 </td>
@@ -82,7 +82,7 @@
 </thead>
 <tr>
 <td class="success">contextLoads()</td>
-<td class="success">0.588s</td>
+<td class="success">0.783s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -90,8 +90,8 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>11:34:22.717 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [group13.wishlist.WishlistApplicationTests]: WishlistApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-11:34:22.801 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration group13.wishlist.WishlistApplication for test class group13.wishlist.WishlistApplicationTests
+<pre>20:35:37.665 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [group13.wishlist.WishlistApplicationTests]: WishlistApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:35:37.847 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration group13.wishlist.WishlistApplication for test class group13.wishlist.WishlistApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -102,16 +102,31 @@
 
  :: Spring Boot ::                (v3.3.4)
 
-2024-10-01T11:34:23.078-07:00  INFO 99170 --- [Wishlist] [    Test worker] g.wishlist.WishlistApplicationTests      : Starting WishlistApplicationTests using Java 23 with PID 99170 (started by ashley in /Users/ashley/Documents/Fall 2024/CST 438/Back-End)
-2024-10-01T11:34:23.079-07:00  INFO 99170 --- [Wishlist] [    Test worker] g.wishlist.WishlistApplicationTests      : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2024-10-01T11:34:23.860-07:00  INFO 99170 --- [Wishlist] [    Test worker] g.wishlist.WishlistApplicationTests      : Started WishlistApplicationTests in 0.974 seconds (process running for 1.741)
+2024-10-03T20:35:38.500-07:00  INFO 1373 --- [Wishlist] [    Test worker] g.wishlist.WishlistApplicationTests      : Starting WishlistApplicationTests using Java 23 with PID 1373 (started by trent in /Users/trent/Documents/cst438/CST438-Project2/Back-End)
+2024-10-03T20:35:38.503-07:00  INFO 1373 --- [Wishlist] [    Test worker] g.wishlist.WishlistApplicationTests      : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2024-10-03T20:35:39.762-07:00  INFO 1373 --- [Wishlist] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-03T20:35:39.839-07:00  INFO 1373 --- [Wishlist] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65 ms. Found 1 JPA repository interface.
+2024-10-03T20:35:40.357-07:00  INFO 1373 --- [Wishlist] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-03T20:35:40.404-07:00  INFO 1373 --- [Wishlist] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-03T20:35:40.446-07:00  INFO 1373 --- [Wishlist] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-03T20:35:40.779-07:00  INFO 1373 --- [Wishlist] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-03T20:35:40.809-07:00  INFO 1373 --- [Wishlist] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-03T20:35:46.437-07:00  INFO 1373 --- [Wishlist] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@2a4e939a
+2024-10-03T20:35:46.439-07:00  INFO 1373 --- [Wishlist] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-03T20:35:47.580-07:00  INFO 1373 --- [Wishlist] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: alter table books modify column authors TEXT
+Hibernate: alter table books modify column categories TEXT
+Hibernate: alter table books modify column description TEXT
+2024-10-03T20:35:48.230-07:00  INFO 1373 --- [Wishlist] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-03T20:35:48.810-07:00  WARN 1373 --- [Wishlist] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-03T20:35:49.397-07:00  INFO 1373 --- [Wishlist] [    Test worker] g.wishlist.WishlistApplicationTests      : Started WishlistApplicationTests in 11.312 seconds (process running for 13.423)
 </pre>
 </span>
 </div>
 <div id="tab2" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>WARNING: A Java agent has been loaded dynamically (/Users/ashley/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.14.19/154da3a65b4f4a909d3e5bdec55d1b2b4cbb6ce1/byte-buddy-agent-1.14.19.jar)
+<pre>WARNING: A Java agent has been loaded dynamically (/Users/trent/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.14.19/154da3a65b4f4a909d3e5bdec55d1b2b4cbb6ce1/byte-buddy-agent-1.14.19.jar)
 WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
 WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
 WARNING: Dynamic loading of agents will be disallowed by default in a future release
@@ -126,7 +141,7 @@ WARNING: Dynamic loading of agents will be disallowed by default in a future rel
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.10.2</a> at Oct 1, 2024, 11:34:24 AM</p>
+<a href="http://www.gradle.org">Gradle 8.10.2</a> at Oct 3, 2024, 8:35:52 PM</p>
 </div>
 </div>
 </body>
