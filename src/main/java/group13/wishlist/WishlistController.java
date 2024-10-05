@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/wishlists")
+@RequestMapping("/api/wishlists")
 public class WishlistController {
 
   @Autowired
@@ -52,7 +52,7 @@ public class WishlistController {
       Wishlist existingWishlist = wishlist.get();
       existingWishlist.setTitle(wishlistDetails.getTitle());
       existingWishlist.setUser(wishlistDetails.getUser());
-      existingWishlist.setBookId(wishlistDetails.getBookId());
+      existingWishlist.setBook(wishlistDetails.getBook());
       return wishlistService.saveWishlist(existingWishlist);
     }
     return null; // Handle the case where the wishlist is not found

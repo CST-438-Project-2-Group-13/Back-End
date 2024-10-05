@@ -1,10 +1,11 @@
 package group13.wishlist;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
@@ -22,16 +23,17 @@ public class Wishlist {
   @JoinColumn(name = "user_id", referencedColumnName = "userId")
   private User user;  // Many-to-One relationship with User
 
-  @Column(name = "book_id")
-  private Long bookId;
+  @ManyToOne(fetch = FetchType.LAZY, optional = false)
+  @JoinColumn(name = "book_id", nullable = false)
+  private Book book;
 
   // Constructors, Getters, and Setters
   public Wishlist() {}
 
-  public Wishlist(String title, User user, Long bookId) {
+  public Wishlist(String title, User user, Book book) {
     this.title = title;
     this.user = user;
-    this.bookId = bookId;
+    this.book = book;
   }
 
   public Long getWishlistId() {
@@ -58,11 +60,11 @@ public class Wishlist {
     this.user = user;
   }
 
-  public Long getBookId() {
-    return bookId;
+  public Book getBook() {
+    return book;
   }
 
-  public void setBookId(Long bookId) {
-    this.bookId = bookId;
+  public void setBook(Book book) {
+    this.book = book;
   }
 }

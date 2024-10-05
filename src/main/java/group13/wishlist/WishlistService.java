@@ -1,10 +1,9 @@
 package group13.wishlist;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class WishlistService {
@@ -18,8 +17,8 @@ public class WishlistService {
   }
 
   // Get wishlist by ID
-  public Optional<Wishlist> getWishlistById(Long wishlistId) {
-    return wishlistRepository.findById(wishlistId);
+  public Optional<Wishlist> getWishlistById(Long id) {
+    return wishlistRepository.findByWishlistId(id);
   }
 
   // Get wishlists by userId
