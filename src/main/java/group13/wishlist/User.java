@@ -1,16 +1,22 @@
 package group13.wishlist;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "users")
 public class User {
+
+
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long userId;
+  @Column(name = "userId")
+  private int userId;
 
   private String username;
 
@@ -28,8 +34,12 @@ public class User {
   }
 
   // Getters and Setters
-  public Long getUserId() {
+  public int getUserId() {
     return userId;
+  }
+
+  public void setUserId(int userId) {
+    this.userId = userId;
   }
 
   public String getUsername() {

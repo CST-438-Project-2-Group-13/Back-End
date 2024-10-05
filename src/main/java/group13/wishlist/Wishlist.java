@@ -4,30 +4,29 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ForeignKey;
 
 @Entity
 public class Wishlist {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long wishlistId;
+  @Column(name = "wishlist_id")  // Map it explicitly to the wishlistId column
+  private Long wishlistId;  // Primary key, auto-incremented
 
   private String title;
 
-  // Many-to-one relationship with User entity
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "userId", foreignKey = @ForeignKey(name = "FK_user_wishlist"))
-  private User user;
+  @ManyToOne
+  @JoinColumn(name = "user_id", referencedColumnName = "userId")
+  private User user;  // Many-to-One relationship with User
 
+  @Column(name = "book_id")
   private Long bookId;
 
-  // Constructors
-  public Wishlist() {
-  }
+  // Constructors, Getters, and Setters
+  public Wishlist() {}
 
   public Wishlist(String title, User user, Long bookId) {
     this.title = title;
@@ -35,9 +34,12 @@ public class Wishlist {
     this.bookId = bookId;
   }
 
-  // Getters and Setters
   public Long getWishlistId() {
     return wishlistId;
+  }
+
+  public void setWishlistId(Long wishlistId) {
+    this.wishlistId = wishlistId;
   }
 
   public String getTitle() {
@@ -60,6 +62,7 @@ public class Wishlist {
     return bookId;
   }
 
-
+  public void setBookId(Long bookId) {
+    this.bookId = bookId;
+  }
 }
-
