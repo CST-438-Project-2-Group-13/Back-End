@@ -25,7 +25,7 @@ public class BookController {
 
   @GetMapping("/searchBooks")
   public List<Book> searchBooks(@RequestParam String query) {
-    String apiUrl = "https://www.googleapis.com/books/v1/volumes?maxResults=10&q=" + query;
+    String apiUrl = "https://www.googleapis.com/books/v1/volumes?key=AIzaSyBSouM1nC4vrRwjs4BlIftlB0QCrw5X0Ss&maxResults=10&q=" + query;
     RestTemplate restTemplate = new RestTemplate();
     String result = restTemplate.getForObject(apiUrl, String.class);
 
