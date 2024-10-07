@@ -2,45 +2,57 @@ package group13.wishlist;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
+@Table(name = "wishlists")
 public class Wishlist {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "wishlist_id")  // Map it explicitly to the wishlistId column
-  private Long wishlistId;  // Primary key, auto-incremented
+  private int wishlistId;  // Primary key, auto-incremented
 
   private String title;
+
+  private String description;
 
   @ManyToOne
   @JoinColumn(name = "user_id", referencedColumnName = "userId")
   private User user;  // Many-to-One relationship with User
 
-  @ManyToOne(fetch = FetchType.LAZY, optional = false)
-  @JoinColumn(name = "book_id", nullable = false)
-  private Book book;
+  @ManyToMany
+  @JoinTable(
+      name = "wishlist_books",
+      joinColumns = @JoinColumn(name = "wishlist_id"),
+      inverseJoinColumns = @JoinColumn(name = "book_id")
+  )
+  private Set<Book> books = new HashSet<>();
 
   // Constructors, Getters, and Setters
   public Wishlist() {}
 
-  public Wishlist(String title, User user, Book book) {
+  public Wishlist(String title, String description, User user) {
     this.title = title;
+    this.description = description;
     this.user = user;
-    this.book = book;
+
   }
 
-  public Long getWishlistId() {
+  public int getWishlistId() {
     return wishlistId;
   }
 
-  public void setWishlistId(Long wishlistId) {
+  public void setWishlistId(int wishlistId) {
     this.wishlistId = wishlistId;
   }
 
@@ -60,11 +72,19 @@ public class Wishlist {
     this.user = user;
   }
 
-  public Book getBook() {
-    return book;
+  public String getDescription() {
+    return description;
   }
 
-  public void setBook(Book book) {
-    this.book = book;
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public Set<Book> getBooks() {
+    return books;
+  }
+
+  public void setBooks(Set<Book> books) {
+    this.books = books;
   }
 }
