@@ -15,9 +15,24 @@ public class BookService {
     return bookRepository.findAll();
   }
 
+  public List<Book> searchBooks(String title, String author, String category) {
+    if (title != null) {
+      return bookRepository.findByTitleContaining(title);
+    } else if (author != null) {
+      return bookRepository.findByAuthorsContaining(author);
+    } else if (category != null) {
+      return bookRepository.findByCategoriesContaining(category);
+    }
+    return getAllBooks();
+  }
+
   // Fetch a book by title
   public Book getBookByTitle(String title) {
     return bookRepository.findByTitle(title);
+  }
+
+  public Book getBookByAuthors(String authors) {
+    return bookRepository.findByAuthors(authors);
   }
 
   // Save a new book

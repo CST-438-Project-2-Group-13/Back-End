@@ -1,10 +1,17 @@
 
 package group13.wishlist;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "books")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Book {
 
   @Id
@@ -108,4 +115,17 @@ public class Book {
     this.smallThumbnail = smallThumbnail;
   }
 
+  @Override
+  public String toString() {
+    return "Book{" +
+        "id=" + id +
+        ", title='" + title + '\'' +
+        ", authors='" + authors + '\'' +
+        ", description='" + description + '\'' +
+        ", pageCount=" + pageCount +
+        ", categories='" + categories + '\'' +
+        ", thumbnail='" + thumbnail + '\'' +
+        ", smallThumbnail='" + smallThumbnail + '\'' +
+        '}';
+  }
 }
