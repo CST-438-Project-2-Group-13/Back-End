@@ -1,62 +1,74 @@
 package group13.wishlist;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long userId;
 
+    @Column(nullable = false, unique = true)
+    private String username;
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "userId")
-  private int userId;
+    @Column(nullable = false)
+    private String password;
 
-  private String username;
+    @Column(nullable = false)
+    private boolean isAdmin = false;
 
-  private String password;
+    // Default constructor
+    protected User() {
+    }
 
-  private Boolean isAdmin;
+    // Constructor with fields
+    public User(String username, String password, boolean isAdmin) {
+        this.username = username;
+        this.password = password;
+        this.isAdmin = isAdmin;
+    }
 
-  // Constructors
-  public User() {}
+    // Getters and Setters
+    public Long getUserId() {
+        return userId;
+    }
 
-  public User(String username, String password, Boolean isAdmin) {
-    this.username = username;
-    this.password = password;
-    this.isAdmin = isAdmin;
-  }
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
-  // Getters and Setters
-  public int getUserId() {
-    return userId;
-  }
+    public String getUsername() {
+        return username;
+    }
 
-  public void setUserId(int userId) {
-    this.userId = userId;
-  }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-  public String getUsername() {
-    return username;
-  }
+    public String getPassword() {
+        return password;
+    }
 
-  public void setUsername(String username) {
-    this.username = username;
-  }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-  public void setPassword(String password) {
-    this.password = password;
-  }
+    public boolean isAdmin() {
+        return isAdmin;
+    }
 
-  public Boolean getIsAdmin() {
-    return isAdmin;
-  }
+    public void setAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", isAdmin=" + isAdmin +
+                '}';
+    }
 }
-
