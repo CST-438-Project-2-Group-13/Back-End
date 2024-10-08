@@ -11,9 +11,40 @@ public class WishlistService {
   @Autowired
   private WishlistRepository wishlistRepository;
 
+  @Autowired
+  private BookRepository bookRepository;
+
+  @Autowired
+  private UserRepository userRepository;
+
   // Get all wishlists
   public List<Wishlist> getAllWishlists() {
     return wishlistRepository.findAll();
+  }
+
+  public Wishlist createWishlist(int userId, String title, String description) {
+    User user = userRepository.findById((long) userId)
+        .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+    Wishlist wishlist = new Wishlist();
+    wishlist.setUser(user);
+    wishlist.setTitle(title);
+    wishlist.setDescription(description);
+    return wishlistRepository.save(wishlist);
+  }
+
+  public void addBookToWishlist(Long wishlistId, Long bookId) {
+    Wishlist wishlist = wishlistRepository.findById(wishlistId)
+        .orElseThrow(() -> new ResourceNotFoundException("Wishlist not found"));
+    Book book = bookRepository.findById(bookId)
+        .orElseThrow(() -> new ResourceNotFoundException("Book not found"));
+    wishlist.getBooks().add(book);
+    wishlistRepository.save(wishlist);
+  }
+
+  public List<Wishlist> getWishlistsByUser(int userId) {
+    User user = userRepository.findById((long) userId)
+        .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+    return wishlistRepository.findByUser(user);
   }
 
   // Get wishlist by ID
@@ -22,13 +53,8 @@ public class WishlistService {
   }
 
   // Get wishlists by userId
-  public List<Wishlist> getWishlistsByUserId(Long userId) {
+  public List<Wishlist> getWishlistsByUserId(int userId) {
     return wishlistRepository.findByUserUserId(userId);
-  }
-
-  // Get wishlists by bookId
-  public List<Wishlist> getWishlistsByBookId(Long bookId) {
-    return wishlistRepository.findByBookId(bookId);
   }
 
   // Create or update a wishlist

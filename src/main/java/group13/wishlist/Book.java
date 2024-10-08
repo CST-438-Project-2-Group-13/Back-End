@@ -38,6 +38,9 @@ public class Book {
   @Column(length = 255)
   private String smallThumbnail;
 
+  //@ManyToMany(mappedBy = "books")
+  //private Set<Wishlist> wishlists = new HashSet<>();
+
   // Constructors, Getters, and Setters
   public Book() {}
 
@@ -114,6 +117,15 @@ public class Book {
   public void setSmallThumbnail(String smallThumbnail) {
     this.smallThumbnail = smallThumbnail;
   }
+
+  /*
+  public Set<Wishlist> getWishlists() {
+    return wishlists;
+  }
+
+  public void setWishlists(Set<Wishlist> wishlists) {
+    this.wishlists = wishlists;
+  } */
 
   @Override
   public String toString() {

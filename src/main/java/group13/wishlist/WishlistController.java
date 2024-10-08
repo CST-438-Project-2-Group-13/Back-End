@@ -1,10 +1,18 @@
 package group13.wishlist;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/wishlists")
@@ -12,6 +20,26 @@ public class WishlistController {
 
   @Autowired
   private WishlistService wishlistService;
+
+  @PostMapping
+  public ResponseEntity<Wishlist> createWishlist(@RequestParam int userId,
+      @RequestParam String name,
+      @RequestParam String description) {
+    Wishlist wishlist = wishlistService.createWishlist(userId, name, description);
+    return ResponseEntity.ok(wishlist);
+  }
+
+  @PostMapping("/{wishlistId}/books/{bookId}")
+  public ResponseEntity<?> addBookToWishlist(@PathVariable Long wishlistId,
+      @PathVariable Long bookId) {
+    wishlistService.addBookToWishlist(wishlistId, bookId);
+    return ResponseEntity.ok().build();
+  }
+
+  @GetMapping("/user/{userId}")
+  public List<Wishlist> getWishlistsByUser(@PathVariable int userId) {
+    return wishlistService.getWishlistsByUser(userId);
+  }
 
   // Get all wishlists
   @GetMapping
@@ -25,25 +53,6 @@ public class WishlistController {
     return wishlistService.getWishlistById(id);
   }
 
-  // Get wishlists by userId
-  @GetMapping("/user/{userId}")
-  public List<Wishlist> getWishlistsByUserId(@PathVariable Long userId) {
-    return wishlistService.getWishlistsByUserId(userId);
-  }
-
-  // Get wishlists by bookId
-  @GetMapping("/book/{bookId}")
-  public List<Wishlist> getWishlistsByBookId(@PathVariable Long bookId) {
-    return wishlistService.getWishlistsByBookId(bookId);
-  }
-
-  // Create a new wishlist
-  @PostMapping
-  public Wishlist createWishlist(@RequestBody Wishlist wishlist) {
-    //need to fetch User here
-    return wishlistService.saveWishlist(wishlist);
-  }
-
   // Update an existing wishlist
   @PutMapping("/{id}")
   public Wishlist updateWishlist(@PathVariable Long id, @RequestBody Wishlist wishlistDetails) {
@@ -52,7 +61,6 @@ public class WishlistController {
       Wishlist existingWishlist = wishlist.get();
       existingWishlist.setTitle(wishlistDetails.getTitle());
       existingWishlist.setUser(wishlistDetails.getUser());
-      existingWishlist.setBook(wishlistDetails.getBook());
       return wishlistService.saveWishlist(existingWishlist);
     }
     return null; // Handle the case where the wishlist is not found

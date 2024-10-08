@@ -8,11 +8,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface WishlistRepository extends JpaRepository<Wishlist, Long> {
 
-  // Find wishlists by userId
-  List<Wishlist> findByUserUserId(Long userId);
+  List<Wishlist> findByUser(User user);
 
-  // Find wishlists by bookId
-  List<Wishlist> findByBookId(Long bookId);
+  // Find wishlists by userId
+  List<Wishlist> findByUserUserId(int userId);
 
   Optional<Wishlist> findByWishlistId(Long id);
 }
