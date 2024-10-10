@@ -2,7 +2,6 @@ package group13.wishlist;
 
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
@@ -14,9 +13,20 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
+    @PostMapping("/login")
+    public String loginUser(@RequestParam String username, @RequestParam String password) {
+        boolean loginSuccess = userService.loginUser(username, password);
+        if (loginSuccess) {
+            return "Login successful!";
+        } else {
+            return "Login failed. Check your credentials.";
+        }
+    }
+
+    @RequestMapping("/logout")
+    public String logoutUser(@RequestParam String username) {
+        boolean logoutSuccess = userService.logoutUser(username);
+        return logoutSuccess ? "Logout successful!" : "Logout failed. No user logged in or username mismatch.";
     }
 
     @GetMapping("/{id}")

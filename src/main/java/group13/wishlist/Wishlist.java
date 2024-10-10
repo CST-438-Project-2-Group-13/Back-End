@@ -14,12 +14,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "wishlists")
+@Table(name = "wishlist")
 public class Wishlist {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "wishlist_id")  // Map it explicitly to the wishlistId column
+  @Column(name = "wishlistId")  // Map it explicitly to the wishlistId column
   private int wishlistId;  // Primary key, auto-incremented
 
   private String title;
