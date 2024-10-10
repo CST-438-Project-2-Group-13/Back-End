@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="group13.wishlist.WishlistApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-10-10T06:19:38" hostname="Ashleys-Air.attlocal.net" time="0.398">
+<testsuite name="group13.wishlist.WishlistApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-10-10T06:26:28" hostname="Ashleys-Air.attlocal.net" time="0.408">
   <properties/>
-  <testcase name="contextLoads()" classname="group13.wishlist.WishlistApplicationTests" time="0.398"/>
-  <system-out><![CDATA[23:19:30.223 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [group13.wishlist.WishlistApplicationTests]: WishlistApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-23:19:30.321 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration group13.wishlist.WishlistApplication for test class group13.wishlist.WishlistApplicationTests
+  <testcase name="contextLoads()" classname="group13.wishlist.WishlistApplicationTests" time="0.408"/>
+  <system-out><![CDATA[23:26:22.502 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [group13.wishlist.WishlistApplicationTests]: WishlistApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+23:26:22.605 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration group13.wishlist.WishlistApplication for test class group13.wishlist.WishlistApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,26 +14,26 @@
 
  :: Spring Boot ::                (v3.3.4)
 
-2024-10-09T23:19:30.549-07:00  INFO 44211 --- [Wishlist] [    Test worker] g.wishlist.WishlistApplicationTests      : Starting WishlistApplicationTests using Java 23 with PID 44211 (started by ashley in /Users/ashley/Documents/Fall 2024/CST 438/Back-End)
-2024-10-09T23:19:30.550-07:00  INFO 44211 --- [Wishlist] [    Test worker] g.wishlist.WishlistApplicationTests      : No active profile set, falling back to 1 default profile: "default"
-2024-10-09T23:19:30.952-07:00  INFO 44211 --- [Wishlist] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-10-09T23:19:30.987-07:00  INFO 44211 --- [Wishlist] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 3 JPA repository interfaces.
-2024-10-09T23:19:31.267-07:00  INFO 44211 --- [Wishlist] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-10-09T23:19:31.296-07:00  INFO 44211 --- [Wishlist] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
-2024-10-09T23:19:31.316-07:00  INFO 44211 --- [Wishlist] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-10-09T23:19:31.501-07:00  INFO 44211 --- [Wishlist] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-10-09T23:19:31.518-07:00  INFO 44211 --- [Wishlist] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-10-09T23:19:33.411-07:00  INFO 44211 --- [Wishlist] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@12aa519b
-2024-10-09T23:19:33.413-07:00  INFO 44211 --- [Wishlist] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-10-09T23:19:34.230-07:00  INFO 44211 --- [Wishlist] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-09T23:26:22.816-07:00  INFO 44486 --- [Wishlist] [    Test worker] g.wishlist.WishlistApplicationTests      : Starting WishlistApplicationTests using Java 23 with PID 44486 (started by ashley in /Users/ashley/Documents/Fall 2024/CST 438/Back-End)
+2024-10-09T23:26:22.817-07:00  INFO 44486 --- [Wishlist] [    Test worker] g.wishlist.WishlistApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2024-10-09T23:26:23.202-07:00  INFO 44486 --- [Wishlist] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-09T23:26:23.238-07:00  INFO 44486 --- [Wishlist] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 3 JPA repository interfaces.
+2024-10-09T23:26:23.508-07:00  INFO 44486 --- [Wishlist] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-09T23:26:23.538-07:00  INFO 44486 --- [Wishlist] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-09T23:26:23.556-07:00  INFO 44486 --- [Wishlist] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-09T23:26:23.754-07:00  INFO 44486 --- [Wishlist] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-09T23:26:23.771-07:00  INFO 44486 --- [Wishlist] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-09T23:26:24.448-07:00  INFO 44486 --- [Wishlist] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@45c423b3
+2024-10-09T23:26:24.451-07:00  INFO 44486 --- [Wishlist] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-09T23:26:25.239-07:00  INFO 44486 --- [Wishlist] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: alter table books modify column authors TEXT
 Hibernate: alter table books modify column categories TEXT
 Hibernate: alter table books modify column description TEXT
 Hibernate: alter table users modify column user_id bigint not null auto_increment
-2024-10-09T23:19:35.230-07:00  WARN 44211 --- [Wishlist] [    Test worker] o.m.jdbc.message.server.ErrorPacket      : Error: 1833-HY000: Cannot change column 'user_id': used in a foreign key constraint 'wishlist_ibfk_1' of table 'jcfz9y5ufeszpd3r.wishlist'
-2024-10-09T23:19:35.232-07:00  WARN 44211 --- [Wishlist] [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table users modify column user_id bigint not null auto_increment" via JDBC [(conn=13900401) Cannot change column 'user_id': used in a foreign key constraint 'wishlist_ibfk_1' of table 'jcfz9y5ufeszpd3r.wishlist']
+2024-10-09T23:26:26.221-07:00  WARN 44486 --- [Wishlist] [    Test worker] o.m.jdbc.message.server.ErrorPacket      : Error: 1833-HY000: Cannot change column 'user_id': used in a foreign key constraint 'wishlist_ibfk_1' of table 'jcfz9y5ufeszpd3r.wishlist'
+2024-10-09T23:26:26.223-07:00  WARN 44486 --- [Wishlist] [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table users modify column user_id bigint not null auto_increment" via JDBC [(conn=13901572) Cannot change column 'user_id': used in a foreign key constraint 'wishlist_ibfk_1' of table 'jcfz9y5ufeszpd3r.wishlist']
 
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table users modify column user_id bigint not null auto_increment" via JDBC [(conn=13900401) Cannot change column 'user_id': used in a foreign key constraint 'wishlist_ibfk_1' of table 'jcfz9y5ufeszpd3r.wishlist']
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table users modify column user_id bigint not null auto_increment" via JDBC [(conn=13901572) Cannot change column 'user_id': used in a foreign key constraint 'wishlist_ibfk_1' of table 'jcfz9y5ufeszpd3r.wishlist']
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
 	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:583) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
 	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:523) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
@@ -162,7 +162,7 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "a
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71) ~[na:na]
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69) ~[gradle-worker.jar:na]
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74) ~[gradle-worker.jar:na]
-Caused by: java.sql.SQLException: (conn=13900401) Cannot change column 'user_id': used in a foreign key constraint 'wishlist_ibfk_1' of table 'jcfz9y5ufeszpd3r.wishlist'
+Caused by: java.sql.SQLException: (conn=13901572) Cannot change column 'user_id': used in a foreign key constraint 'wishlist_ibfk_1' of table 'jcfz9y5ufeszpd3r.wishlist'
 	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:306) ~[mariadb-java-client-3.3.3.jar:na]
 	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:378) ~[mariadb-java-client-3.3.3.jar:na]
 	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:172) ~[mariadb-java-client-3.3.3.jar:na]
@@ -179,10 +179,10 @@ Caused by: java.sql.SQLException: (conn=13900401) Cannot change column 'user_id'
 	... 127 common frames omitted
 
 Hibernate: alter table wishlist modify column user_id bigint
-2024-10-09T23:19:35.323-07:00  WARN 44211 --- [Wishlist] [    Test worker] o.m.jdbc.message.server.ErrorPacket      : Error: 1832-HY000: Cannot change column 'user_id': used in a foreign key constraint 'wishlist_ibfk_1'
-2024-10-09T23:19:35.323-07:00  WARN 44211 --- [Wishlist] [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table wishlist modify column user_id bigint" via JDBC [(conn=13900401) Cannot change column 'user_id': used in a foreign key constraint 'wishlist_ibfk_1']
+2024-10-09T23:26:26.312-07:00  WARN 44486 --- [Wishlist] [    Test worker] o.m.jdbc.message.server.ErrorPacket      : Error: 1832-HY000: Cannot change column 'user_id': used in a foreign key constraint 'wishlist_ibfk_1'
+2024-10-09T23:26:26.312-07:00  WARN 44486 --- [Wishlist] [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table wishlist modify column user_id bigint" via JDBC [(conn=13901572) Cannot change column 'user_id': used in a foreign key constraint 'wishlist_ibfk_1']
 
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table wishlist modify column user_id bigint" via JDBC [(conn=13900401) Cannot change column 'user_id': used in a foreign key constraint 'wishlist_ibfk_1']
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table wishlist modify column user_id bigint" via JDBC [(conn=13901572) Cannot change column 'user_id': used in a foreign key constraint 'wishlist_ibfk_1']
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
 	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:583) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
 	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:523) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
@@ -311,7 +311,7 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "a
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71) ~[na:na]
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69) ~[gradle-worker.jar:na]
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74) ~[gradle-worker.jar:na]
-Caused by: java.sql.SQLException: (conn=13900401) Cannot change column 'user_id': used in a foreign key constraint 'wishlist_ibfk_1'
+Caused by: java.sql.SQLException: (conn=13901572) Cannot change column 'user_id': used in a foreign key constraint 'wishlist_ibfk_1'
 	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:306) ~[mariadb-java-client-3.3.3.jar:na]
 	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:378) ~[mariadb-java-client-3.3.3.jar:na]
 	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:172) ~[mariadb-java-client-3.3.3.jar:na]
@@ -327,9 +327,9 @@ Caused by: java.sql.SQLException: (conn=13900401) Cannot change column 'user_id'
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
 	... 127 common frames omitted
 
-2024-10-09T23:19:37.502-07:00  INFO 44211 --- [Wishlist] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-10-09T23:19:37.888-07:00  WARN 44211 --- [Wishlist] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-10-09T23:19:38.141-07:00  INFO 44211 --- [Wishlist] [    Test worker] g.wishlist.WishlistApplicationTests      : Started WishlistApplicationTests in 7.727 seconds (process running for 8.539)
+2024-10-09T23:26:28.192-07:00  INFO 44486 --- [Wishlist] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-09T23:26:28.618-07:00  WARN 44486 --- [Wishlist] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-09T23:26:28.960-07:00  INFO 44486 --- [Wishlist] [    Test worker] g.wishlist.WishlistApplicationTests      : Started WishlistApplicationTests in 6.272 seconds (process running for 7.074)
 ]]></system-out>
   <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (/Users/ashley/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.14.19/154da3a65b4f4a909d3e5bdec55d1b2b4cbb6ce1/byte-buddy-agent-1.14.19.jar)
 WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
