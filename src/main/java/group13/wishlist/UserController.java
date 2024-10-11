@@ -29,11 +29,6 @@ public class UserController {
         return logoutSuccess ? "Logout successful!" : "Logout failed. No user logged in or username mismatch.";
     }
 
-    @GetMapping("/{id}")
-    public User getUserById(@PathVariable Long id) {
-        return userService.getUserById(id);
-    }
-
     @PostMapping
     public User createUser(@RequestBody User user) {
         return userService.createUser(user);

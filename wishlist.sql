@@ -18,8 +18,8 @@ CREATE TABLE IF NOT EXISTS books (
     SmallThumbnail VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS wishlist (
-    wishlistId INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS wishlists (
+    wishlist_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     description TEXT,
     userId INT,
@@ -31,6 +31,6 @@ CREATE TABLE IF NOT EXISTS wishlist_books (
     wishlist_id INT,
     book_id INT,
     PRIMARY KEY (wishlist_id, book_id),
-    FOREIGN KEY (wishlist_id) REFERENCES wishlist(wishlistId),
+    FOREIGN KEY (wishlist_id) REFERENCES wishlists(wishlist_id),
     FOREIGN KEY (book_id) REFERENCES books(id)
 );
