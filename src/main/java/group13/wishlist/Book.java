@@ -27,6 +27,7 @@ public class Book {
   @Column(columnDefinition = "TEXT")
   private String description;
 
+  @Column
   private Integer pageCount;
 
   @Column(columnDefinition = "TEXT")

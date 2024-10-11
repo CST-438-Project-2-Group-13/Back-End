@@ -12,10 +12,10 @@ CREATE TABLE IF NOT EXISTS books (
     Title VARCHAR(255),
     Authors TEXT,
     Description TEXT,
-    PageCount INT,
+    pageCount INT,
     Categories TEXT,
     Thumbnail VARCHAR(255),
-    SmallThumbnail VARCHAR(255)
+    smallThumbnail VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS wishlists (
