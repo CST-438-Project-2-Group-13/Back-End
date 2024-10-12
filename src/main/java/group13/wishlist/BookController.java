@@ -42,8 +42,10 @@ public class BookController {
       String title = volumeInfo.get("title").getAsString();
       JsonArray authorsArray = volumeInfo.getAsJsonArray("authors");
       StringBuilder authorsBuilder = new StringBuilder();
-      for (int j = 0; j < authorsArray.size(); j++) {
-        authorsBuilder.append(authorsArray.get(j).getAsString()).append(", ");
+      if (authorsArray != null) {
+        for (int j = 0; j < authorsArray.size(); j++) {
+          authorsBuilder.append(authorsArray.get(j).getAsString()).append(", ");
+        }
       }
       String authors = authorsBuilder.length() > 0 ? authorsBuilder.substring(0, authorsBuilder.length() - 2) : "";
       String description = volumeInfo.has("description") ? volumeInfo.get("description").getAsString() : "No description available";

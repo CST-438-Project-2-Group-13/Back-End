@@ -27,6 +27,7 @@ public class Book {
   @Column(columnDefinition = "TEXT")
   private String description;
 
+  @Column(name="pageCount")
   private Integer pageCount;
 
   @Column(columnDefinition = "TEXT")
@@ -35,7 +36,7 @@ public class Book {
   @Column(length = 255)
   private String thumbnail;
 
-  @Column(length = 255)
+  @Column(name="smallThumbnail", length = 255)
   private String smallThumbnail;
 
   //@ManyToMany(mappedBy = "books")

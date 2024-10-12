@@ -27,7 +27,7 @@ public class Wishlist {
   private String description;
 
   @ManyToOne
-  @JoinColumn(name = "user_id", referencedColumnName = "userId")
+  @JoinColumn(name = "user_id")
   private User user;  // Many-to-One relationship with User
 
   @ManyToMany
