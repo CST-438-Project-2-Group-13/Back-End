@@ -2,18 +2,15 @@ package group13.wishlist;
 
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import jakarta.servlet.http.HttpSession;
 
 @Service
 public class UserService {
 
     private final UserRepository userRepository;
-    private final HttpSession session;
     private final BCryptPasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository, HttpSession session ) {
+    public UserService(UserRepository userRepository ) {
         this.userRepository = userRepository;
-        this.session = session;
         this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
@@ -26,17 +23,13 @@ public class UserService {
 
         if (user != null && passwordEncoder.matches(password, user.getPassword())) {
             // Store the user in the session to mark them as logged in
-            session.setAttribute("loggedInUser", user);
             return true;
         }
         return false;
     }
 
     public boolean logoutUser(String username) {
-        User loggedInUser = (User) session.getAttribute("loggedInUser");
-
-        if (loggedInUser != null && loggedInUser.getUsername().equals(username)) {
-            session.invalidate();
+        if (username != null) {
             return true; //logout
         }
         return false;  // No user was logged in, or username didn't match
