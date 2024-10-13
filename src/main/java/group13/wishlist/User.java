@@ -69,9 +69,6 @@ public class User {
         return roles;
     }
 
-    public void setAdmin(boolean isAdmin) {
-        this.roles = roles;
-    }
 
     @Override
     public String toString() {
