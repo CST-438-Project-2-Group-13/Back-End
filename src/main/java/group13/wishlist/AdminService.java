@@ -1,5 +1,6 @@
 package group13.wishlist;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,9 +9,11 @@ import java.util.List;
 public class AdminService {
 
     private final UserRepository userRepository;
+    private final BCryptPasswordEncoder passwordEncoder;
 
     public AdminService(UserRepository userRepository) {
         this.userRepository = userRepository;
+        this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
     // Admin login (hardcoded credentials for now)
@@ -29,6 +32,7 @@ public class AdminService {
         User user = userRepository.findByUsername(username);
         if (user == null) {
             User newUser = new User(username, password,false);
+            newUser.setPassword(passwordEncoder.encode(password));
             return userRepository.save(newUser);
         }
         throw new RuntimeException("User already exists.");
@@ -48,7 +52,7 @@ public class AdminService {
     public boolean updateUser(String username, String newPassword) {
         User user = userRepository.findByUsername(username);
         if (user != null) {
-            user.setPassword(newPassword);  // Update the password
+            user.setPassword(passwordEncoder.encode(newPassword));
             userRepository.save(user);
             return true;
         }
