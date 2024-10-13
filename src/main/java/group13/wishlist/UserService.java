@@ -53,7 +53,7 @@ public class UserService {
 
     public User createUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRoles("ROLE_USER");
+        user.setRoles("USER");
         return userRepository.save(user);
     }
 
