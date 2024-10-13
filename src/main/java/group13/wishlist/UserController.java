@@ -4,7 +4,6 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/api/users")
 public class UserController {
 
     private final UserService userService;
@@ -29,7 +28,7 @@ public class UserController {
         return logoutSuccess ? "Logout successful!" : "Logout failed. No user logged in or username mismatch.";
     }
 
-    @PostMapping
+    @PostMapping("/newuser")
     public User createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
