@@ -28,7 +28,7 @@ public class AdminService {
     public User createUser(String username, String password) {
         User user = userRepository.findByUsername(username);
         if (user == null) {
-            User newUser = new User(username, password,false);
+            User newUser = new User(username, password,"USER");
             return userRepository.save(newUser);
         }
         throw new RuntimeException("User already exists.");

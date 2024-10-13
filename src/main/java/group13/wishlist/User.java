@@ -25,17 +25,17 @@ public class User {
     private String password;
 
     @Column(nullable = false)
-    private boolean isAdmin = false;
+    private String roles;
 
     // Default constructor
     protected User() {
     }
 
     // Constructor with fields
-    public User(String username, String password, boolean isAdmin) {
+    public User(String username, String password, String roles) {
         this.username = username;
         this.password = password;
-        this.isAdmin = isAdmin;
+        this.roles = roles;
     }
 
     // Getters and Setters
@@ -65,12 +65,12 @@ public class User {
         this.password = password;
     }
 
-    public boolean isAdmin() {
-        return isAdmin;
+    public String roles() {
+        return roles;
     }
 
     public void setAdmin(boolean isAdmin) {
-        this.isAdmin = isAdmin;
+        this.roles = roles;
     }
 
     @Override
@@ -78,7 +78,10 @@ public class User {
         return "User{" +
                 "userId=" + userId +
                 ", username='" + username + '\'' +
-                ", isAdmin=" + isAdmin +
+                ", roles=" + roles +
                 '}';
+    }
+
+    public void setRoles(String roleUser) {
     }
 }
