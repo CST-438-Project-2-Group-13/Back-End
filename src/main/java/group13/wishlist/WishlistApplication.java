@@ -16,7 +16,7 @@ public class WishlistApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins("https://plotpicks-b82378f80d9c.herokuapp.com/");
+				registry.addMapping("/**").allowedOrigins("https://plotpicks-b82378f80d9c.herokuapp.com");
 			}
 		};
 	}
