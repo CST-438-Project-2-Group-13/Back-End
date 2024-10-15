@@ -4,7 +4,6 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/api/users")
 public class UserController {
 
     private final UserService userService;
@@ -29,18 +28,20 @@ public class UserController {
         return logoutSuccess ? "Logout successful!" : "Logout failed. No user logged in or username mismatch.";
     }
 
-    @GetMapping("/{id}")
-    public User getUserById(@PathVariable Long id) {
-        return userService.getUserById(id);
-    }
 
     @PostMapping("/newuser")
     public User createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable Long id) {
-        userService.deleteUser(id);
+    // Delete user
+    @DeleteMapping("/users")
+    public String deleteUser(@RequestParam String username, @RequestParam String confirm) {
+        if ("yes".equalsIgnoreCase(confirm)) {
+            boolean deleteSuccess = userService.deleteUser(username);
+            return deleteSuccess ? "User deleted successfully." : "User deletion failed.";
+        } else {
+            return "User deletion not confirmed.";
+        }
     }
 }

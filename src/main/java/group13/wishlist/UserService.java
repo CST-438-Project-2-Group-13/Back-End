@@ -21,18 +21,11 @@ public class UserService {
     public boolean loginUser(String username, String password) {
         User user = userRepository.findByUsername(username);
 
-        if (user != null && passwordEncoder.matches(password, user.getPassword())) {
-            // Store the user in the session to mark them as logged in
-            return true;
-        }
-        return false;
+        return user != null && passwordEncoder.matches(password, user.getPassword());
     }
 
     public boolean logoutUser(String username) {
-        if (username != null) {
-            return true; //logout
-        }
-        return false;  // No user was logged in, or username didn't match
+        return username != null; //logout
     }
 
     public User createUser(User user) {
@@ -40,7 +33,13 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public void deleteUser(Long id) {
-        userRepository.deleteById(id);
+    // Delete a user by username
+    public boolean deleteUser(String username) {
+        User user = userRepository.findByUsername(username);
+        if (user != null) {
+            userRepository.delete(user);
+            return true;
+        }
+        return false;
     }
 }

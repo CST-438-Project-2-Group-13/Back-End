@@ -28,10 +28,10 @@ public class AdminService {
     }
 
     // Create a new user
-    public User createUser(String username, String password) {
+    public User createUser(String username, String password, String role) {
         User user = userRepository.findByUsername(username);
         if (user == null) {
-            User newUser = new User(username, password,false);
+            User newUser = new User(username, password,role);
             newUser.setPassword(passwordEncoder.encode(password));
             return userRepository.save(newUser);
         }
