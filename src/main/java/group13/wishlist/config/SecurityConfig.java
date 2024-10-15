@@ -33,7 +33,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOrigins(List.of("https://plotpicks-b82378f80d9c.herokuapp.com/","http://localhost:3000"));
+        corsConfiguration.setAllowedOrigins(List.of("https://plotpicks-b82378f80d9c.herokuapp.com","http://localhost:3000"));
         corsConfiguration.setAllowedMethods(List.of("GET", "POST"));
         corsConfiguration.setAllowCredentials(true);
         corsConfiguration.setAllowedHeaders(List.of("*"));
