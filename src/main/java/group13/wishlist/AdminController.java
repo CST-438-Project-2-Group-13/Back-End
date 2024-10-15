@@ -29,8 +29,8 @@ public class AdminController {
 
     // Create new user
     @PutMapping("/users")
-    public User createUser(@RequestParam String username, @RequestParam String password) {
-        return adminService.createUser(username, password);
+    public User createUser(@RequestParam String username, @RequestParam String password, @RequestParam String firstName, @RequestParam String role) {
+        return adminService.createUser(username, password, role);
     }
 
     // Delete user
