@@ -24,6 +24,7 @@ public class BookController {
   @Autowired
   private BookService bookService;
 
+  @CrossOrigin
   @GetMapping("/searchBooks")
   public List<Book> searchBooks(@RequestParam String query) {
     String apiUrl = "https://www.googleapis.com/books/v1/volumes?key=AIzaSyBSouM1nC4vrRwjs4BlIftlB0QCrw5X0Ss&maxResults=24&q=" + query;
@@ -63,7 +64,7 @@ public class BookController {
     return books;
   }
 
-  
+
   @GetMapping("/api/books")
   public List<Book> searchBooks(
       @RequestParam(required = false) String title,
