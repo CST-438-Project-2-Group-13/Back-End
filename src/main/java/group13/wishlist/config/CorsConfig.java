@@ -21,6 +21,7 @@ public class CorsConfig {
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(Arrays.asList("*"));
         config.setAllowCredentials(true); // Optional for credentials (cookies, etc.)
+        config.addExposedHeader("Access-Control-Allow-Origin");
 
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
