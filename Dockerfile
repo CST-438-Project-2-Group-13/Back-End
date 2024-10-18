@@ -1,15 +1,24 @@
-# Use an official OpenJDK runtime as a parent image
+# Use an official JDK runtime as a parent image
 FROM eclipse-temurin:23-jdk
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the Spring Boot jar file into the container and rename to app.jar
-COPY build/libs/Wishlist-0.0.1-SNAPSHOT.jar app.jar
+# Copy the Gradle wrapper and build configuration files first
+COPY build.gradle settings.gradle gradlew /app/
+COPY gradle /app/gradle/
+
+# Copy the rest of the source code
+COPY src /app/src
+
+# Run the Gradle build inside the container to create the JAR file
+RUN ./gradlew clean build
+
+# Copy the generated JAR file from build/libs to the working directory
+RUN mv /app/build/libs/Wishlist-0.0.1-SNAPSHOT.jar /app/app.jar
 
 # Expose port 8080
 EXPOSE 8080
 
-# Command to run the jar file
+# Run the JAR file
 ENTRYPOINT ["java", "-jar", "app.jar", "--server.port=${PORT:-8080}"]
-
