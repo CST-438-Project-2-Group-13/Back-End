@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private final UserService userService;
+    private final UserRepository userRepository;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, UserRepository userRepository) {
         this.userService = userService;
+        this.userRepository = userRepository;
     }
 
     @PostMapping("/login")
@@ -24,12 +26,12 @@ public class UserController {
     }
 
     @GetMapping("/protected")
-    public String protectedEndpoint(@RequestHeader("Authorization") String token) {
+    public User protectedEndpoint(@RequestHeader("Authorization") String token) {
         try {
             String username = JwtUtil.validateToken(token);
-            return "Welcome, " + username;
+            return userRepository.findByUsername(username);
         } catch (Exception e) {
-            return "Unauthorized!";
+            return null;
         }
     }
 
