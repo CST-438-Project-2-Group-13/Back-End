@@ -16,9 +16,20 @@ public class UserController {
     public String loginUser(@RequestParam String username, @RequestParam String password) {
         boolean loginSuccess = userService.loginUser(username, password);
         if (loginSuccess) {
-            return "Login successful!";
+            //return "Login successful!";
+            return JwtUtil.generateToken(username);
         } else {
             return "Login failed. Check your credentials.";
+        }
+    }
+
+    @GetMapping("/protected")
+    public String protectedEndpoint(@RequestHeader("Authorization") String token) {
+        try {
+            String username = JwtUtil.validateToken(token);
+            return "Welcome, " + username;
+        } catch (Exception e) {
+            return "Unauthorized!";
         }
     }
 
