@@ -66,6 +66,17 @@ public class WishlistController {
     return null; // Handle the case where the wishlist is not found
   }
 
+  //delete a book from a wishlist
+  @DeleteMapping("/{wishlistId}/books/{bookId}")
+  public ResponseEntity<?> removeBookFromWishlist(@PathVariable Long wishlistId, @PathVariable Long bookId) {
+    try {
+      wishlistService.removeBookFromWishlist(wishlistId, bookId);
+      return ResponseEntity.noContent().build(); // Return 204 No Content on successful deletion
+    } catch (Exception e) {
+      return ResponseEntity.notFound().build(); // Return 404 if book or wishlist not found
+    }
+  }
+
   // Delete a wishlist
   @DeleteMapping("/{id}")
   public void deleteWishlist(@PathVariable Long id) {
