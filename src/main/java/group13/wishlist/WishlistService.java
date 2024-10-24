@@ -2,6 +2,7 @@ package group13.wishlist;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -65,6 +66,25 @@ public class WishlistService {
   // Delete a wishlist by ID
   public void deleteWishlist(Long wishlistId) {
     wishlistRepository.deleteById(wishlistId);
+  }
+
+  public void removeBookFromWishlist(Long wishlistId, Long bookId) throws Exception {
+    // Fetch the wishlist, throw exception if not found
+    Wishlist wishlist = wishlistRepository.findById(wishlistId)
+        .orElseThrow(() -> new Exception("Wishlist not found with id: " + wishlistId));
+
+    // Fetch the book, throw exception if not found
+    Book book = bookRepository.findById(bookId)
+        .orElseThrow(() -> new Exception("Book not found with id: " + bookId));
+
+    // Remove the book from the wishlist's Set<Book>
+    Set<Book> books = wishlist.getBooks();
+    if (!books.remove(book)) {
+      throw new Exception("Book not found in the wishlist");
+    }
+
+    // Save the updated wishlist
+    wishlistRepository.save(wishlist);
   }
 }
 
