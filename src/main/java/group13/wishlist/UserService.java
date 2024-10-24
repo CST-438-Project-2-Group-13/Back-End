@@ -34,9 +34,9 @@ public class UserService {
     }
 
     // Delete a user by username
-    public boolean deleteUser(String username) {
+    public boolean deleteUser(String username, String password) {
         User user = userRepository.findByUsername(username);
-        if (user != null) {
+        if (user != null && passwordEncoder.matches(password, user.getPassword())) {
             userRepository.delete(user);
             return true;
         }

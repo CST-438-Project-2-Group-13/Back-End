@@ -49,13 +49,9 @@ public class UserController {
 
     // Delete user
     @DeleteMapping("/users")
-    public String deleteUser(@RequestParam String username, @RequestParam String confirm) {
-        if ("yes".equalsIgnoreCase(confirm)) {
-            boolean deleteSuccess = userService.deleteUser(username);
-            return deleteSuccess ? "User deleted successfully." : "User deletion failed.";
-        } else {
-            return "User deletion not confirmed.";
-        }
+    public String deleteUser(@RequestParam String username, @RequestParam String password) {
+        boolean deleteSuccess = userService.deleteUser(username, password);
+        return deleteSuccess ? "User deleted successfully." : "User deletion failed.";
     }
 
     // Update user information
