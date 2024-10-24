@@ -1,5 +1,7 @@
 package group13.wishlist;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -15,13 +17,15 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String loginUser(@RequestParam String username, @RequestParam String password) {
-        boolean loginSuccess = userService.loginUser(username, password);
-        if (loginSuccess) {
-            //return "Login successful!";
-            return JwtUtil.generateToken(username);
+    public ResponseEntity<?> loginUser(@RequestParam String username, @RequestParam String password) {
+        String token = userService.loginUser(username, password);
+
+        if (token != null) {
+            // If login is successful, return the token
+            return ResponseEntity.ok(token);
         } else {
-            return "Login failed. Check your credentials.";
+            // If login fails, return a 401 Unauthorized response
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login failed. Check your credentials.");
         }
     }
 
