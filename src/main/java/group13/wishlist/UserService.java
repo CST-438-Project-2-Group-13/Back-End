@@ -24,7 +24,7 @@ public class UserService {
 
         if (user != null && passwordEncoder.matches(password, user.getPassword())) {
             // If login is successful, generate and return the token
-            return JwtUtil.generateToken(username, user.getRoles());  // Assuming the role is 'ROLE_USER'
+            return JwtUtil.generateToken(username, "ROLE_"+user.getRoles());
         } else {
             // If login fails, return null or an error message
             return null;  // Indicates failed login
