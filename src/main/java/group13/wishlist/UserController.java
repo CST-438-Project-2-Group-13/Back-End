@@ -57,4 +57,18 @@ public class UserController {
             return "User deletion not confirmed.";
         }
     }
+
+    // Update user information
+
+    @PatchMapping("/username")
+    public String updateUsername(@RequestParam String username, @RequestParam String newUsername) {
+        boolean updateSuccess = userService.updateUsername(username, newUsername);
+        return updateSuccess ? "Username updated successfully." : "Username update failed.";
+    }
+
+    @PatchMapping("/password")
+    public String updatePassword(@RequestParam String username,@RequestParam String currentPassword, @RequestParam String newPassword) {
+        boolean updateSuccess = userService.updatePassword(username, currentPassword, newPassword);
+        return updateSuccess ? "Password updated successfully." : "Password update failed.";
+    }
 }

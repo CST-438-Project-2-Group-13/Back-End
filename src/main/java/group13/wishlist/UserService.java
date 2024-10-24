@@ -42,4 +42,27 @@ public class UserService {
         }
         return false;
     }
+
+    public boolean updateUsername(String username, String newUsername) {
+        User user = userRepository.findByUsername(username);
+        User newUser = userRepository.findByUsername(newUsername);
+        if (user != null && newUser == null) {
+            user.setUsername(newUsername);
+            userRepository.save(user);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean updatePassword(String username, String currentPassword, String newPassword) {
+        User user = userRepository.findByUsername(username);
+
+        if (user != null && passwordEncoder.matches(currentPassword, user.getPassword())) {
+            user.setPassword(passwordEncoder.encode(newPassword));
+            userRepository.save(user);
+            return true;
+        }
+        return false;
+    }
+
 }
