@@ -11,10 +11,12 @@ public class AdminService {
 
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
+    private final WishlistRepository wishlistRepository;
 
-    public AdminService(UserRepository userRepository) {
+    public AdminService(UserRepository userRepository, WishlistRepository wishlistRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = new BCryptPasswordEncoder();
+        this.wishlistRepository = wishlistRepository;
     }
 
     // Admin login (hardcoded credentials for now)
@@ -39,11 +41,12 @@ public class AdminService {
         throw new RuntimeException("User already exists.");
     }
 
-    // Delete a user by username
+    // Delete a user by username, also deletes wishlists associated with the user
     @Transactional
     public boolean deleteUser(String username) {
         User user = userRepository.findByUsername(username);
         if (user != null) {
+            wishlistRepository.deleteAll(wishlistRepository.findByUser(user));
             userRepository.delete(user);
             return true;
         }
