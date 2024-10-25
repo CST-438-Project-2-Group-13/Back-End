@@ -8,10 +8,12 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
+    private final WishlistRepository wishlistRepository;
 
-    public UserService(UserRepository userRepository ) {
+    public UserService(UserRepository userRepository,WishlistRepository wishlistRepository ) {
         this.userRepository = userRepository;
         this.passwordEncoder = new BCryptPasswordEncoder();
+        this.wishlistRepository = wishlistRepository;
     }
 
     public User getUserById(Long id) {
@@ -44,6 +46,7 @@ public class UserService {
     public boolean deleteUser(String username, String password) {
         User user = userRepository.findByUsername(username);
         if (user != null && passwordEncoder.matches(password, user.getPassword())) {
+            wishlistRepository.deleteAll(wishlistRepository.findByUser(user));
             userRepository.delete(user);
             return true;
         }
