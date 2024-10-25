@@ -18,10 +18,17 @@ public class UserService {
         return userRepository.findById(id).orElse(null);
     }
 
-    public boolean loginUser(String username, String password) {
+    public String loginUser(String username, String password) {
+        // Fetch user from the database
         User user = userRepository.findByUsername(username);
 
-        return user != null && passwordEncoder.matches(password, user.getPassword());
+        if (user != null && passwordEncoder.matches(password, user.getPassword())) {
+            // If login is successful, generate and return the token
+            return JwtUtil.generateToken(username, "ROLE_"+user.getRoles());
+        } else {
+            // If login fails, return null or an error message
+            return null;  // Indicates failed login
+        }
     }
 
     public boolean logoutUser(String username) {
@@ -34,9 +41,9 @@ public class UserService {
     }
 
     // Delete a user by username
-    public boolean deleteUser(String username) {
+    public boolean deleteUser(String username, String password) {
         User user = userRepository.findByUsername(username);
-        if (user != null) {
+        if (user != null && passwordEncoder.matches(password, user.getPassword())) {
             userRepository.delete(user);
             return true;
         }
