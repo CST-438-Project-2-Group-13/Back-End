@@ -1,5 +1,6 @@
 package group13.wishlist;
 
+import jakarta.transaction.Transactional;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +40,7 @@ public class AdminService {
     }
 
     // Delete a user by username
+    @Transactional
     public boolean deleteUser(String username) {
         User user = userRepository.findByUsername(username);
         if (user != null) {

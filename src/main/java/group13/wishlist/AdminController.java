@@ -1,5 +1,7 @@
 package group13.wishlist;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,12 +39,14 @@ public class AdminController {
 
     // Delete user
     @DeleteMapping("/users")
-    public String deleteUser(@RequestParam String username, @RequestParam String confirm) {
-        if ("yes".equalsIgnoreCase(confirm)) {
+    public ResponseEntity<String> deleteUser(@RequestParam String username) {
+        try {
             boolean deleteSuccess = adminService.deleteUser(username);
-            return deleteSuccess ? "User deleted successfully." : "User deletion failed.";
-        } else {
-            return "User deletion not confirmed.";
+            return deleteSuccess
+                    ? ResponseEntity.ok("User deleted successfully.")
+                    : ResponseEntity.status(HttpStatus.NOT_FOUND).body("User deletion failed: User not found.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while deleting the user.");
         }
     }
 
