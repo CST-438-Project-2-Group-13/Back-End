@@ -59,7 +59,6 @@ public class UserController {
     }
 
     // Update user information
-
     @PatchMapping("/username")
     public String updateUsername(@RequestParam String username, @RequestParam String newUsername) {
         boolean updateSuccess = userService.updateUsername(username, newUsername);
