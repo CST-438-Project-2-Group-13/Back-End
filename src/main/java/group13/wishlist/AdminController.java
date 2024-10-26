@@ -59,7 +59,7 @@ public class AdminController {
     }
 
     // Update user role
-    @PatchMapping("/password")
+    @PatchMapping("/role")
     public ResponseEntity<String> updateRole(@RequestParam String username, @RequestParam String role) {
         try {
             boolean updateSuccess = adminService.updateRole(username, role);
