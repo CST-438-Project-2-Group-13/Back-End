@@ -19,11 +19,6 @@ public class AdminService {
         this.wishlistRepository = wishlistRepository;
     }
 
-    // Admin login (hardcoded credentials for now)
-    public boolean loginAdmin(String username, String password) {
-        // need to use a secure method for verifying admin credentials
-        return "admin".equals(username) && "adminpassword".equals(password);
-    }
 
     // Fetch all users
     public List<User> getAllUsers() {
@@ -53,11 +48,12 @@ public class AdminService {
         return false;
     }
 
-    // Update a user by changing their password
-    public boolean updateUser(String username, String newPassword) {
+
+    // Changes a user's role
+    public boolean updateRole(String username, String role) {
         User user = userRepository.findByUsername(username);
         if (user != null) {
-            user.setPassword(passwordEncoder.encode(newPassword));
+            user.setRoles(role);
             userRepository.save(user);
             return true;
         }
